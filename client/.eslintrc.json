@@ -1,0 +1,6 @@
+{
+  "extends": "@atomix/react",
+  "env": {
+    "browser": true
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "name": "@instaclone/frontend",
+  "version": "0.1.0",
+  "description": "Instagram clone on react and styled components",
+  "private": true,
+  "scripts": {
+    "dev:server": "micro ./server",
+    "dev": "concurrently -n 'server' -k 'npm run dev:server'",
+    "clean": "rimraf dist/*",
+    "test:lint": "eslint .",
+    "test": "npm run test:lint",
+    "prepush": "npm test",
+    "precommit": "npm run test:lint",
+    "commitmsg": "commitlint -e $GIT_PARAMS"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergeysova/InstaClone.git"
+  },
+  "keywords": [
+    "react",
+    "webpack",
+    "styled",
+    "components",
+    "atomic",
+    "design",
+    "redux"
+  ],
+  "author": "Sergey Sova <mail@sergeysova.com> (https://sergeysova.com)",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/sergeysova/InstaClone/issues"
+  },
+  "homepage": "https://github.com/sergeysova/InstaClone#readme",
+  "dependencies": {
+    "micro": "^9.1.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-actions": "^2.2.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
+    "styled-components": "^3.1.6"
+  },
+  "devDependencies": {
+    "@atomix/eslint-config": "^6.1.1",
+    "@atomix/eslint-config-react": "^6.1.1",
+    "@commitlint/cli": "^6.1.0",
+    "babel-eslint": "^8.2.1",
+    "concurrently": "^3.5.1",
+    "cz-customizable": "^5.2.0",
+    "eslint": "^4.17.0",
+    "glob": "^7.1.2",
+    "husky": "^0.14.3",
+    "rimraf": "^2.6.2",
+    "typescript-styled-plugin": "^0.4.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
+  }
+}
