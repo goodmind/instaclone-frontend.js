@@ -1,5 +1,5 @@
 
-
+import { MergeObjects } from 'utils/tools';
 
 /**
  *
@@ -35,4 +35,35 @@ export function likePhotoByUser(photo, user) {
 
   return photo;
 }
+
+
+
+/**
+ *
+ * @param  {Object} user
+ * @param  {Object} photo
+ * @param  {String} text
+ * @return {Promise}        Thenable/Catcheable
+ */
+export function commentPhoto(user, photo, text) {
+  return new Promise((resolve, reject) => {
+    let comments = [];
+    photo.comments.map((item) => comments.push(item));
+
+    comments.push({
+      id: Math.floor(Math.random() * 100000),
+      postedAt: Date.now(),
+      text,
+      userId: user.id,
+      userName: user.username
+    });
+
+    // Remove that after implement backend
+    photo.comments = comments;
+    photo.numComments++;
+    photo.commentsTotalCount++;
+    resolve(photo);
+  });
+}
+
 

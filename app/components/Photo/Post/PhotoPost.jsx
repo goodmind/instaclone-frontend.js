@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 import iconHeart from 'images/heart.svg';
 
 import { getPost } from 'actions/feedActions';
-import { likePhotoByUser } from 'actions/photoActions';
+import { likePhotoByUser, commentPhoto } from 'actions/photoActions';
 import { MergeObjects } from 'utils/tools';
 
 import PhotoBox from 'Photo/Box/PhotoBox';
@@ -45,7 +45,8 @@ export default class PhotoPost extends Component {
       comments: [],
       likedByViewer: false
     },
-    error: null
+    error: null,
+    commentText: ''
   };
 
 
@@ -81,6 +82,25 @@ export default class PhotoPost extends Component {
     });
 
     this.setState({ content: nextPhotoObject});
+  }
+
+
+  handleCommentKeyPress(event) {
+    if (event.key === 'Enter' &&
+        !event.shiftKey && !event.altKey && !event.ctrlKey) {
+
+      commentPhoto(this.context.currentUser, MergeObjects(this.state.content), this.state.commentText)
+      .then((newPhoto) => {
+        this.setState({ content: newPhoto, commentText: '' });
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+    }
+  }
+
+  handleChangeComment(event) {
+    this.setState({ commentText: event.target.value });
   }
 
 
@@ -127,7 +147,7 @@ export default class PhotoPost extends Component {
         {likes}
         <section className="Comments">
           {post.comments.map((comment) => {
-            var lines = comment.text.split("\n");
+            const lines = comment.text.split("\n");
 
             return (
               <div className="comment" key={comment.id}>
@@ -140,6 +160,12 @@ export default class PhotoPost extends Component {
         <section className="WriteNewComment">
           <figure onClick={this::this.handleLike} className={CN({ Liked: post.likedByViewer })}
             dangerouslySetInnerHTML={{ __html: iconHeart }} />
+          <div className="CommentForm">
+            <input type="text" ref="comment" placeholder="Add comment..."
+              value={this.state.commentText}
+              onChange={this::this.handleChangeComment}
+              onKeyPress={this::this.handleCommentKeyPress} />
+          </div>
         </section>
       </div>
     );

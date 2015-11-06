@@ -1,7 +1,8 @@
+import Tree from 'Tree';
 import css from './ApplicationBase.styl';
 import React, { Component } from 'react';
+import DocumentTitle from 'react-document-title';
 import { root as Root } from 'baobab-react/higher-order';
-import Tree from 'Tree';
 
 import ApplicationHeader from 'Application/Header/ApplicationHeader';
 
@@ -26,20 +27,22 @@ class ApplicationBase extends Component {
   getChildContext() {
     return {
       currentUser: {
-        id: null // not authorized
+        id: null, // not authorized
+        username: '!unauthorized'
       }
     };
   }
 
   render() {
     return (
-      <section className={css.ApplicationBase}>
-        <ApplicationHeader />
-        {this.props.children}
-      </section>
+      <DocumentTitle title="Instagram">
+        <section className={css.ApplicationBase}>
+          <ApplicationHeader />
+          {this.props.children}
+        </section>
+      </DocumentTitle>
     );
   }
 }
-
 
 export default Root(ApplicationBase, Tree);

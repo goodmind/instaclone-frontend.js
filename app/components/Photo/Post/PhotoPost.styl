@@ -1,50 +1,49 @@
 
 
-
 :local(.PhotoPost)
-  background: white
-  border: 1px solid #edeeee
-  border-radius: 3px
   display: flex
-  flex-direction: column
-  margin-bottom: 60px
   font-size: 14px
   line-height: 18px
+  background: white
+  border-radius: 3px
+  margin-bottom: 60px
+  flex-direction: column
+  border: 1px solid #edeeee
 
   header
-    display: flex
     height: 64px
+    display: flex
     padding: 14px 20px
-    box-sizing: border-box
     align-items: center
+    box-sizing: border-box
 
     img.OwnerAvatar
+      width: 30px
+      height: 30px
       display: flex
       flex-basis: 30px
-      height: 30px
-      margin: -1px 10px -1px -5px
-      width: 30px
       border-radius: 50%
       background: #fbfbfb
-      border: 1px solid #cccfd0
       box-sizing: border-box
+      border: 1px solid #cccfd0
+      margin: -1px 10px -1px -5px
 
     .Owner
-      display: flex
       flex: 1
+      display: flex
 
       a
-        text-decoration: none
         color: #125688
-        display: inline-block
         font-weight: 500
+        text-decoration: none
+        display: inline-block
         &:hover
           color: #0d3c5f
 
     a.Reference
-      text-decoration: none
-      font-weight: 500
       color: gray
+      font-weight: 500
+      text-decoration: none
 
   .Media
     display: flex
@@ -67,14 +66,14 @@
         margin-bottom: 0
 
       &.Likes
-        font-weight: 600
         color: #4b4f54
+        font-weight: 600
 
       &.WriteNewComment
-        border-top: 1px solid #eeefef
-        flex-direction: row
         min-height: 70px
         align-items: center
+        flex-direction: row
+        border-top: 1px solid #eeefef
 
         figure
           margin: 0
@@ -84,32 +83,51 @@
           cursor: pointer
 
           svg
-            padding: 6px
             width: 32px
             height: 32px
+            padding: 6px
 
             path
-              fill: transparent
               stroke: #A6A8A8
+              fill: transparent
 
           &.Liked
             svg path
-              fill: #F12938
               stroke: none
+              fill: #F12938
+
+        .CommentForm
+          flex: 1
+          display: flex
+          align-items: stretch
+          flex-direction: column
+
+          input
+            display: flex
+            font-size: 15px
+            line-height: 18px
+            border: none
+            outline: none
+            background: none
+
+            &:active
+            &:focus
+              outline: none
+
 
       &.Comments
         .comment
-          word-wrap: break-word
-          margin-bottom: 7px
           font-size: 15px
           line-height: 18px
+          margin-bottom: 7px
+          word-wrap: break-word
 
           h1
-            display: inline-block
-            font-size: 15px
             margin: 0
             padding: 0
+            font-size: 15px
             margin-right: 6px
+            display: inline-block
 
           a
             color: #125688
