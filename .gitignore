@@ -4,5 +4,3 @@ node_modules
 .DS_Store
 .idea
 *.sublime-*
-/app/config.js
-*.gen.json
