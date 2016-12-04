@@ -4,7 +4,7 @@ Instagram clone with React.JS + Baobab + Webpack + Stylus
 
 Develop in a [stream](https://www.livecoding.tv/lestad/)
 
-### Regenerate `fee.gen.json`
+### Regenerate `feed.gen.json`
 
 - Copy content of `/post.json.struct.js`
 - Open http://www.json-generator.com/
