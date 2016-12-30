@@ -1,6 +1,10 @@
 # InstaClone
 Instagram clone with React.JS + Baobab + Webpack + Stylus
 
+## Development stopped
+
+InstaClone now freezed. See [RURARAR](https://github.com/lestad/rurarar) - React Redux boilerplate with Recompose, ServerSide Rendering and JSS (maybe StyledComponents).
+
 
 Develop in a [stream](https://www.livecoding.tv/lestad/)
 
