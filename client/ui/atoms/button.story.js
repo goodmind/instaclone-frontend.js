@@ -8,3 +8,6 @@ storiesOf('atoms/Button', module)
   .add('Default', () => (
     <Button>Default button</Button>
   ))
+  .add('Default wide', () => (
+    <Button wide>Wide button</Button>
+  ))
