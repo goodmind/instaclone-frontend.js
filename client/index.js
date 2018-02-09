@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { Provider as ReduxProvider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 
-import { Routes } from './routes'
+import { Routes, FragmentRoutes } from './routes'
 import { defaultTheme } from './theme'
 import { configureStore } from './store'
 

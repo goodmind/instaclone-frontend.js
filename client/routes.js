@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import { Route, Switch, Redirect, Link } from 'react-router-dom'
 
@@ -18,13 +18,6 @@ const FeedPage = () => (
   <GenericTemplate>
     Home page | <Link to="/settings">Settings</Link><br />
     <Link to="/@sergeysova">@sergeysova</Link>
-  </GenericTemplate>
-)
-
-const UserPage = ({ match }) => (
-  <GenericTemplate>
-    User: {match.params.username} <br />
-    <Link to="/@sergeysova/i/1">#1</Link>
   </GenericTemplate>
 )
 
@@ -62,18 +55,32 @@ const ImagePage = ({ match, history }) => (
   </Platter>
 )
 
-export const Routes = () => (
-  <Switch>
-    <Route path="/" exact component={FeedPage} />
-    <Route path="/@:username">
-      {({ match }) => ([
-        <UserPage match={match} key="root" />,
-        <Switch key="child">
-          <Route path="/@:username/i/:image" exact component={ImagePage} />
-          <Route component={NotFountPage} />
-        </Switch>,
-      ])}
-    </Route>
-    <Route component={NotFountPage} />
-  </Switch>
+const UserPage = ({ match }) => (
+  <GenericTemplate>
+    User: {match.params.username} <br />
+    <Link to="/@sergeysova/i/1">#1</Link>
+    {/* <Switch>
+      <Route path="/@:username/i/:image" exact component={ImagePage} />
+    </Switch> */}
+  </GenericTemplate>
 )
+
+export const Routes = () => [
+  <Switch key="main">
+    <Route path="/" exact component={FeedPage} />
+    <Route path="/@:username" exact component={UserPage} />
+    <Route path="/@:username/i/:image" exact component={UserPage} />
+    <Route path="/settings" component={SettingsPage} />
+    <Route component={NotFountPage} />
+  </Switch>,
+  <FragmentRoutes key="fragment" />,
+]
+
+export const FragmentRoutes = () => (
+  <Fragment>
+    <Switch>
+      <Route path="/@:username/i/:image" exact component={ImagePage} />
+    </Switch>
+  </Fragment>
+)
+
