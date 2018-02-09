@@ -3,11 +3,13 @@ export const color = {
   primary: '#3897f0',
 
   backgroundLight: '#fafafa',
+  backgroundWhite: '#fff',
 
   text: '#262626',
   textLight: '#999',
 
   border: '#efefef',
+  borderDark: '#e6e6e6',
 }
 
 export const font = {
