@@ -1,5 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { injectGlobal } from 'styled-components'
+import { normalize } from 'styled-normalize'
 import { configure, addDecorator } from '@storybook/react';
 
 function loadStories() {
@@ -8,6 +9,7 @@ function loadStories() {
   req.keys().forEach(req)
 }
 
+injectGlobal`${normalize}`
 
 const RootDecorator = styled.div`
   display: flex;
