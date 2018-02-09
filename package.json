@@ -14,7 +14,7 @@
     "test": "npm run test:lint",
     "prepush": "npm test",
     "precommit": "npm run test:lint",
-    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "commitmsg": "cat .git/COMMIT_EDITMSG | commitlint",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
