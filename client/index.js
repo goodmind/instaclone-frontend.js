@@ -2,11 +2,11 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider as ReduxProvider } from 'react-redux'
-import { ThemeProvider, injectGlobal } from 'styled-components'
+import { injectGlobal } from 'styled-components'
 import { normalize } from 'styled-normalize'
 
 import { Routes } from './routes'
-import { defaultTheme, globalStyles } from './ui/theme'
+import { globalStyles } from './ui/theme'
 import { configureStore } from './store'
 
 
@@ -19,13 +19,11 @@ injectGlobal`${normalize} ${globalStyles}`
 const render = () => {
   ReactDom.render(
     (
-      <ThemeProvider theme={defaultTheme}>
-        <ReduxProvider store={store}>
-          <BrowserRouter>
-            <Routes />
-          </BrowserRouter>
-        </ReduxProvider>
-      </ThemeProvider>
+      <ReduxProvider store={store}>
+        <BrowserRouter>
+          <Routes />
+        </BrowserRouter>
+      </ReduxProvider>
     ),
     rootElement,
   )

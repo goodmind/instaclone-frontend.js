@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
-import { Route, Switch, Redirect, Link } from 'react-router-dom'
+import { Route, Switch, Link } from 'react-router-dom'
 
+/* eslint-disable react/prop-types */
 
 const GenericTemplate = styled.div`
   padding: 1rem;
@@ -48,7 +49,7 @@ const Card = styled.div`
 `
 
 const ImagePage = ({ match, history }) => (
-  <Platter onClick={(event) => history.push(`/@${match.params.username}`)}>
+  <Platter onClick={() => history.push(`/@${match.params.username}`)}>
     <Card>
       Image: {match.params.image} of {match.params.username}
     </Card>
