@@ -4,19 +4,19 @@
   "description": "Instagram clone on react and styled components",
   "private": true,
   "scripts": {
+    "dev:storybook": "start-storybook -p 3006",
     "dev:server": "micro ./server",
     "dev:webpack": "webpack-dev-server",
-    "dev": "concurrently -n 'server,webpack' -k 'npm run dev:server' 'npm run dev:webpack'",
+    "dev": "concurrently -n 'server,webpack,storybook' -k 'npm run dev:server' 'npm run dev:webpack' 'npm run dev:storybook'",
     "clean": "rimraf dist/*",
-    "build": "webpack",
     "build:prod": "cross-env NODE_ENV=production run-s clean build",
+    "build:storybook": "build-storybook",
+    "build": "webpack",
     "test:lint": "eslint .",
     "test": "npm run test:lint",
     "prepush": "npm test",
     "precommit": "npm run test:lint",
-    "commitmsg": "cat .git/COMMIT_EDITMSG | commitlint",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "commitmsg": "cat .git/COMMIT_EDITMSG | commitlint"
   },
   "repository": {
     "type": "git",
