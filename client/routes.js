@@ -68,7 +68,10 @@ export const Routes = () => (
     <Route path="/@:username">
       {({ match }) => ([
         <UserPage match={match} key="root" />,
-        <Route path="/@:username/i/:image" exact component={ImagePage} key="image" />,
+        <Switch key="child">
+          <Route path="/@:username/i/:image" exact component={ImagePage} />
+          <Route component={NotFountPage} />
+        </Switch>,
       ])}
     </Route>
     <Route component={NotFountPage} />
