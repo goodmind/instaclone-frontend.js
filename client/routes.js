@@ -66,22 +66,22 @@ const UserPage = ({ match }) => (
   </GenericTemplate>
 )
 
-export const Routes = () => [
-  <Switch key="main">
-    <Route path="/" exact component={FeedPage} />
-    <Route path="/@:username" exact component={UserPage} />
-    <Route path="/@:username/i/:image" exact component={UserPage} />
-    <Route path="/settings" component={SettingsPage} />
-    <Route component={NotFountPage} />
-  </Switch>,
-  <FragmentRoutes key="fragment" />,
-]
-
-export const FragmentRoutes = () => (
+export const Routes = () => (
   <Fragment>
     <Switch>
-      <Route path="/@:username/i/:image" exact component={ImagePage} />
+      <Route path="/" exact component={FeedPage} />
+      <Route path="/@:username" exact component={UserPage} />
+      <Route path="/@:username/i/:image" exact component={UserPage} />
+      <Route path="/settings" component={SettingsPage} />
+      <Route component={NotFountPage} />
     </Switch>
+    <PopupRoutes />
   </Fragment>
+)
+
+export const PopupRoutes = () => (
+  <Switch>
+    <Route path="/@:username/i/:image" exact component={ImagePage} />
+  </Switch>
 )
 

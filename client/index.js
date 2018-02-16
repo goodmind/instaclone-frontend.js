@@ -33,7 +33,7 @@ render()
 
 if (module.hot) {
   module.hot.accept(
-    ['./routes', './theme', './store'],
+    ['./routes', './ui/theme', './store'],
     render,
   )
 }
