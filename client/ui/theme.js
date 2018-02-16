@@ -23,6 +23,7 @@ export const globalStyles = css`
     -webkit-font-smoothing: antialiased;
     margin: 0;
     padding: 0;
+    background-color: #fafafa;
   }
 
   * {
