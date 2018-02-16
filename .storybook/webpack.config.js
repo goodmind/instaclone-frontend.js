@@ -12,7 +12,10 @@ module.exports = {
   ],
   module: {
     rules: [
-      // add your custom rules.
+      {
+        test: /\.svg$/,
+        loader: 'react-svg-loader',
+      }
     ],
   },
 };

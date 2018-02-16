@@ -54,7 +54,7 @@ const config = {
       },
       {
         test: /\.svg$/,
-        use: 'svg-react-loader',
+        use: 'react-svg-loader',
       },
     ],
   },
