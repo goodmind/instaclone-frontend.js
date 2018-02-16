@@ -1,3 +1,4 @@
+const css = String.raw
 
 export const color = {
   primary: '#3897f0',
@@ -16,7 +17,7 @@ export const font = {
   formElement: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
 }
 
-export const globalStyles = `
+export const globalStyles = css`
   html, body {
     font-size: 10px;
   }
