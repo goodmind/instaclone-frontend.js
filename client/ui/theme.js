@@ -20,6 +20,9 @@ export const font = {
 export const globalStyles = css`
   html, body {
     font-size: 10px;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0;
   }
 
   * {
