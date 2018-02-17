@@ -6,10 +6,23 @@ import { CommonTemplate, Litter } from './ui'
 
 /* eslint-disable react/prop-types */
 
+const CenterContainer = styled.div`
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
+  align-items: center;
+`
+
 const NotFountPage = () => (
   <CommonTemplate>
-    <h1>404</h1>
-    <h4>Page not found</h4>
+    <CenterContainer>
+      <h2>Sorry, this page isn{'\''}t available.</h2>
+      <p>
+        The link you followed may be broken, or the page may have been removed.
+        {' '}
+        <Link to="/">Go back to Instaclone.</Link>
+      </p>
+    </CenterContainer>
   </CommonTemplate>
 )
 
