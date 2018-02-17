@@ -20,6 +20,7 @@ export const font = {
 export const globalStyles = css`
   html, body {
     font-size: 10px;
+    font-family: ${font.formElement};
     -webkit-font-smoothing: antialiased;
     margin: 0;
     padding: 0;
