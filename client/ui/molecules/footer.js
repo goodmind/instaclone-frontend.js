@@ -55,7 +55,7 @@ export const Footer = () => (
     <Container>
       <Links>
         {links.map(([title, link]) => (
-          <a href={link} title={title} rel="noopener" target="_blank">{title}</a>
+          <a href={link} key={title} title={title} rel="noopener" target="_blank">{title}</a>
         ))}
       </Links>
       <Copyleft>
