@@ -82,7 +82,7 @@ const config = {
     //   minChunks: Infinity,
     // }),
     new HtmlPlugin({
-      title: 'InstaClone',
+      title: 'Instaclone',
       template: 'index.tpl.html',
     }),
     new EnvironmentPlugin({

@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider as ReduxProvider } from 'react-redux'
+import Helmet from 'react-helmet'
 import { injectGlobal } from 'styled-components'
 import { normalize } from 'styled-normalize'
 
@@ -21,7 +22,12 @@ const render = () => {
     (
       <ReduxProvider store={store}>
         <BrowserRouter>
-          <Routes />
+          <React.Fragment>
+            <Helmet
+              titleTemplate="%s • Instaclone"
+            />
+            <Routes />
+          </React.Fragment>
         </BrowserRouter>
       </ReduxProvider>
     ),

@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
+import Helmet from 'react-helmet'
 import { Route, Switch, Link } from 'react-router-dom'
 
 import { CommonTemplate, Litter } from './ui'
@@ -15,6 +16,7 @@ const CenterContainer = styled.div`
 
 const NotFountPage = () => (
   <CommonTemplate>
+    <Helmet title="Page Not Found" />
     <CenterContainer>
       <h2>Sorry, this page isn{'\''}t available.</h2>
       <p>
@@ -28,6 +30,7 @@ const NotFountPage = () => (
 
 const FeedPage = () => (
   <CommonTemplate>
+    <Helmet title="Instaclone" titleTemplate="%s" />
     Home page | <Link to="/settings">Settings</Link><br />
     <Link to="/@sergeysova">@sergeysova</Link>
   </CommonTemplate>
@@ -35,6 +38,7 @@ const FeedPage = () => (
 
 const SettingsPage = () => (
   <CommonTemplate>
+    <Helmet title="Settings" />
     Settings | <Link to="/">Feed</Link>
   </CommonTemplate>
 )
@@ -56,6 +60,7 @@ const ImagePage = ({ match, history }) => (
 
 const UserPage = ({ match }) => (
   <CommonTemplate>
+    <Helmet title={`@${match.params.username}`} />
     User: {match.params.username} <br />
     <Link to="/@sergeysova/i/1">#1</Link>
     {/* <Switch>
