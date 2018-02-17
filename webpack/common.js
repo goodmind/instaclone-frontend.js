@@ -37,10 +37,10 @@ const config = {
 
   resolve: {
     extensions: ['.mjs', '.js'],
-
-    alias: {
-      '~': SRC,
-    },
+    modules: [
+      'node_modules',
+      SRC,
+    ],
   },
 
   module: {

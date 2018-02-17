@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { Litter } from '~/ui'
+import { Litter } from 'ui'
 
 
 const Card = styled.div`
