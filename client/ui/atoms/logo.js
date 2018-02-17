@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import OutlineInstaclone from '../outlines/instaclone.svg'
+import { OutlineInstaclone } from '../outlines'
 
 
 export const Logo = styled(OutlineInstaclone)`
