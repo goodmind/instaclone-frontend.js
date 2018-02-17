@@ -9,18 +9,19 @@ import { OutlineCamera } from '../outlines'
 
 
 const HeaderWrapper = styled.div`
+  align-items: stretch;
   background-color: white;
   border-bottom: 1px solid #efefef;
+  display: flex;
+  flex-shrink: 0;
+  font-family: ${font.formElement};
   height: 7.7rem;
+  justify-content: center;
+  left: 0;
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   z-index: 100;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  font-family: ${font.formElement};
 `
 
 const SpacedContainer = Container.extend`
