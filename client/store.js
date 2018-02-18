@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import { createLogger } from 'redux-logger'
 import Thunk from 'redux-thunk'
-import { createActions, handleActions, combineActions } from 'redux-actions'
+import { createSymbiote } from 'redux-symbiote'
 
 import { Api } from './api'
 
@@ -19,44 +19,28 @@ const initialState = {
   users: [],
 }
 
-const Actions = createActions({
-  users: {
-    loadingStart: () => ({ state: LOADING.loading }),
-    loadingFailed: (error) => ({ error, state: LOADING.failed }),
-    loadingFinish: (users) => ({ users: users.data, state: LOADING.ready }),
+const { actions, reducer: usersReducer } = createSymbiote(initialState, {
+  loading: {
+    start: () => ({ status: LOADING.loading }),
+    failed: (error) => ({ error, status: LOADING.failed }),
+    finish: (users) => ({ users: users.data, status: LOADING.ready }),
   },
-}).users
+}, 'users')
 
 export const loadUsers = () => (
   async (dispatch, getState, { api }) => {
-    dispatch(Actions.loadingStart())
+    dispatch(actions.loading.start())
 
     try {
       const users = await api.get('/users')
 
-      dispatch(Actions.loadingFinish(users))
+      dispatch(actions.loading.finish(users))
     }
     catch (error) {
-      dispatch(Actions.loadingFailed(error.message))
+      dispatch(actions.loading.failed(error.message))
     }
   }
 )
-
-/**
- * Update state by fn
- * @param {(payload: any, meta: any) => Object} fn
- * @return {any}
- */
-const update = (fn) => (prevState, action) => ({ ...prevState, ...fn(action.payload, action.meta) })
-
-const usersReducer = handleActions({
-  [combineActions(Actions.loadingStart, Actions.loadingFinish, Actions.loadingStart)]:
-    update(({ state }) => ({ state })),
-
-  [Actions.loadingFailed]: update(({ error }) => ({ error })),
-
-  [Actions.loadingFinish]: update(({ users }) => ({ users })),
-}, initialState)
 
 const reducer = combineReducers({
   users: usersReducer,
