@@ -4,6 +4,7 @@ const {
   HotModuleReplacementPlugin,
 } = require('webpack')
 const merge = require('webpack-merge')
+const Jarvis = require('webpack-jarvis')
 
 const { config, DIST } = require('./common')
 
@@ -22,6 +23,9 @@ module.exports = merge(config, {
   },
 
   plugins: [
+    new Jarvis({
+      port: 3005,
+    }),
     new LoaderOptionsPlugin({
       debug: true,
       minimize: false,
