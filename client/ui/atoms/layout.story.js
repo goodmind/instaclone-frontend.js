@@ -2,7 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
-import { withInfo } from '@storybook/addon-info'
+import { select, number } from '@storybook/addon-knobs'
 
 import { Layout } from './layout'
 
@@ -17,79 +17,28 @@ const Element = styled.div`
   padding: 1rem;
 `
 
-const info = withInfo({
-  propTables: [Layout],
-  propTablesExclude: [Element, Container],
-})
 
-storiesOf('atoms/Layout', module)
-  .add('Row', info(() => (
+storiesOf('ui/atoms', module)
+  .add('Layout', () => (
     <Container>
-      <Layout flow="row">
+      <Layout
+        flow={select('Flow', { column: 'Column', row: 'Row' }, 'row')}
+        wrap={select('Wrap', { wrap: 'Wrap', nowrap: 'No wrap' }, 'nowrap')}
+        justify={select('Justify', {
+          center: 'Center',
+          'flex-start': 'Flex start',
+          'flex-end': 'Flex end',
+          'space-between': 'Space between',
+          'space-around': 'Space around',
+        }, 'flex-start')}
+        padding={number('Padding', 1)}
+        gap={number('Gap', 1)}
+        width={number('Width', 30)}
+      >
         <Element>A</Element>
         <Element>B</Element>
         <Element>C</Element>
         <Element>D</Element>
       </Layout>
     </Container>
-  )))
-  .add('Column', info(() => (
-    <Container>
-      <Layout flow="column">
-        <Element>A</Element>
-        <Element>B</Element>
-        <Element>C</Element>
-        <Element>D</Element>
-      </Layout>
-    </Container>
-  )))
-  .add('Padding', info(() => (
-    <Container>
-      <Layout flow="row" padding={2}>
-        <Element>A</Element>
-        <Element>B</Element>
-        <Element>C</Element>
-        <Element>D</Element>
-      </Layout>
-    </Container>
-  )))
-  .add('Row gap', info(() => (
-    <Container>
-      <Layout flow="row" gap={2}>
-        <Element>A</Element>
-        <Element>B</Element>
-        <Element>C</Element>
-        <Element>D</Element>
-      </Layout>
-    </Container>
-  )))
-  .add('Column gap', info(() => (
-    <Container>
-      <Layout flow="column" gap={2}>
-        <Element>A</Element>
-        <Element>B</Element>
-        <Element>C</Element>
-        <Element>D</Element>
-      </Layout>
-    </Container>
-  )))
-  .add('Padding & gap row', info(() => (
-    <Container>
-      <Layout flow="row" padding={2} gap={2}>
-        <Element>A</Element>
-        <Element>B</Element>
-        <Element>C</Element>
-        <Element>D</Element>
-      </Layout>
-    </Container>
-  )))
-  .add('Padding & gap column', info(() => (
-    <Container>
-      <Layout flow="column" padding={2} gap={2}>
-        <Element>A</Element>
-        <Element>B</Element>
-        <Element>C</Element>
-        <Element>D</Element>
-      </Layout>
-    </Container>
-  )))
+  ))

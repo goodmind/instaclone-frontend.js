@@ -6,8 +6,8 @@ import { MemoryRouter } from 'react-router-dom'
 import { Footer } from './footer'
 
 
-storiesOf('ui/molecules/Footer', module)
-  .add('Default', () => (
+storiesOf('ui/molecules', module)
+  .add('Footer', () => (
     <MemoryRouter>
       <div style={{ display: 'flex', width: '100%', flexDirection: 'column' }}>
         <Footer />

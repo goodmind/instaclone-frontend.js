@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react'
 import Camera from './camera.svg'
 
 
-storiesOf('outlines', module)
+storiesOf('ui/outlines', module)
   .add('camera', () => (
     <Camera />
   ))

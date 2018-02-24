@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react'
 import Instaclone from './instaclone.svg'
 
 
-storiesOf('outlines', module)
+storiesOf('ui/outlines', module)
   .add('instaclone', () => (
     <Instaclone />
   ))

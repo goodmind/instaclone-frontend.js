@@ -2,7 +2,8 @@ import React from 'react'
 import styled, { injectGlobal } from 'styled-components'
 import { normalize } from 'styled-normalize'
 import { configure, addDecorator } from '@storybook/react'
-import { setDefaults } from '@storybook/addon-info'
+import { setDefaults } from '@storybook/addon-info' // TODO: remove
+import { withKnobs } from '@storybook/addon-knobs'
 
 import { globalStyles, color } from '../client/ui/theme'
 
@@ -15,9 +16,8 @@ const RootDecorator = styled.div`
   padding: 30px;
 `
 
-addDecorator((fn) => (
-  <RootDecorator>{fn()}</RootDecorator>
-))
+addDecorator(withKnobs)
+addDecorator((fn) => <RootDecorator>{fn()}</RootDecorator>)
 
 setDefaults({
   header: false,

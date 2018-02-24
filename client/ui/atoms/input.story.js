@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react'
 import { storiesOf } from '@storybook/react'
-import { withInfo } from '@storybook/addon-info'
+import { boolean } from '@storybook/addon-knobs'
 
 import { Input } from './input'
 
@@ -23,27 +23,12 @@ class WithState extends Component {
   }
 }
 
-const info = withInfo({
-  source: false,
-  propTables: [Input],
-  components: {
-    WithState: 'Input',
-  },
-  propTablesExclude: [WithState],
-})
 
-storiesOf('atoms/Input', module)
-  .add('Default', info(() => (
+storiesOf('ui/atoms', module)
+  .add('Input', () => (
     <WithState default="Example">
       {(props) => (
-        <Input {...props} />
+        <Input bordered={boolean('Bordered', true)} {...props} />
       )}
     </WithState>
-  )))
-  .add('Bordered', info(() => (
-    <WithState default="Example">
-      {(props) => (
-        <Input bordered {...props} />
-      )}
-    </WithState>
-  )))
+  ))

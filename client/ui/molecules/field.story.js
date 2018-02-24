@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react'
 import { storiesOf } from '@storybook/react'
+import { text } from '@storybook/addon-knobs'
 
 import { Field } from './field'
 
@@ -22,11 +23,11 @@ class WithState extends Component {
   }
 }
 
-storiesOf('molecules/Field', module)
-  .add('Default', () => (
+storiesOf('ui/molecules', module)
+  .add('Field', () => (
     <WithState>
       {(props) => (
-        <Field label="Username or email" {...props} />
+        <Field label={text('Label', 'Username or email')} {...props} />
       )}
     </WithState>
   ))

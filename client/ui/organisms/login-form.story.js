@@ -6,7 +6,7 @@ import { action } from '@storybook/addon-actions'
 import { LoginForm } from './login-form'
 
 
-storiesOf('organisms/LoginForm', module)
-  .add('Default', () => (
+storiesOf('ui/organisms', module)
+  .add('LoginForm', () => (
     <LoginForm onSubmit={action('login clicked')} />
   ))

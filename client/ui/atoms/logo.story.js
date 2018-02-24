@@ -1,16 +1,11 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { text, color } from '@storybook/addon-knobs'
 
 import { Logo } from './logo'
 
 
-storiesOf('atoms/Logo', module)
-  .add('Default', () => (
-    <Logo />
-  ))
-  .add('Small', () => (
-    <Logo height="30px" width="135px" />
-  ))
-  .add('Colored', () => (
-    <Logo fill="red" />
+storiesOf('ui/atoms', module)
+  .add('Logo', () => (
+    <Logo height={text('Height', '30px')} width={text('Width', '135px')} fill={color('Fill', '#000')} />
   ))
