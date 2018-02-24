@@ -4,11 +4,17 @@ import { normalize } from 'styled-normalize'
 import { configure, addDecorator } from '@storybook/react'
 import { withKnobs } from '@storybook/addon-knobs'
 import { setOptions } from '@storybook/addon-options'
+import backgrounds from '@storybook/addon-backgrounds'
 
 import { globalStyles, color } from '../client/ui/theme'
 
 
-injectGlobal`${normalize}${globalStyles}`
+injectGlobal`
+  ${normalize}${globalStyles}
+  html, body {
+    background-color: inherit;
+  }
+`
 
 const RootDecorator = styled.div`
   display: flex;
@@ -17,6 +23,10 @@ const RootDecorator = styled.div`
 `
 
 addDecorator(withKnobs)
+addDecorator(backgrounds([
+  { name: 'Base', value: color.backgroundLight, default: true },
+  { name: 'White', value: '#ffffff' },
+]))
 addDecorator((fn) => <RootDecorator>{fn()}</RootDecorator>)
 
 setOptions({
