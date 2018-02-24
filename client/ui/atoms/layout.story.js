@@ -19,7 +19,7 @@ const Element = styled.div`
 
 
 storiesOf('ui/atoms', module)
-  .add('Layout', () => (
+  .addWithJSX('Layout', () => (
     <Container>
       <Layout
         flow={select('Flow', { column: 'Column', row: 'Row' }, 'row')}

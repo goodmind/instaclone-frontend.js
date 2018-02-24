@@ -5,6 +5,6 @@ import Camera from './camera.svg'
 
 
 storiesOf('ui/outlines', module)
-  .add('camera', () => (
+  .addWithJSX('camera', () => (
     <Camera />
   ))

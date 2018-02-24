@@ -8,6 +8,6 @@ import { Button } from './button'
 
 
 storiesOf('ui/atoms', module)
-  .add('Button', () => (
+  .addWithJSX('Button', () => (
     <Button onClick={action('default')} wide={boolean('Wide', false)}>{text('Children', 'Example content')}</Button>
   ))

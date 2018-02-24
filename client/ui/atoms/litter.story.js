@@ -6,6 +6,6 @@ import { Litter } from './litter'
 
 
 storiesOf('ui/atoms', module)
-  .add('Litter', () => (
+  .addWithJSX('Litter', () => (
     <Litter onClick={action('litter')} />
   ))

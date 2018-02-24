@@ -5,6 +5,6 @@ import Instaclone from './instaclone.svg'
 
 
 storiesOf('ui/outlines', module)
-  .add('instaclone', () => (
+  .addWithJSX('instaclone', () => (
     <Instaclone />
   ))

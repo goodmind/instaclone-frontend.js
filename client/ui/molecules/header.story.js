@@ -8,10 +8,10 @@ import { Header } from './header'
 
 
 storiesOf('ui/molecules', module)
-  .add('Header', () => (
+  .addWithJSX('Header', () => (
     <MemoryRouter>
       <Header>
         <div style={{ fontSize: '1.4rem' }}>{text('Children', 'Example content')}</div>
       </Header>
     </MemoryRouter>
-  ))
+  ), { skip: 1 })

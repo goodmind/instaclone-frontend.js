@@ -1,10 +1,11 @@
 import React from 'react'
 import styled, { injectGlobal } from 'styled-components'
 import { normalize } from 'styled-normalize'
-import { configure, addDecorator } from '@storybook/react'
+import { configure, addDecorator, setAddon } from '@storybook/react'
 import { withKnobs } from '@storybook/addon-knobs'
 import { setOptions } from '@storybook/addon-options'
 import backgrounds from '@storybook/addon-backgrounds'
+import JsxAddon from 'storybook-addon-jsx'
 
 import { globalStyles, color } from '../client/ui/theme'
 
@@ -22,6 +23,8 @@ const RootDecorator = styled.div`
   padding: 30px;
 `
 
+setAddon(JsxAddon)
+
 addDecorator(withKnobs)
 addDecorator(backgrounds([
   { name: 'Base', value: color.backgroundLight, default: true },
@@ -32,7 +35,7 @@ addDecorator((fn) => <RootDecorator>{fn()}</RootDecorator>)
 setOptions({
   name: 'Instaclone',
   showAddonPanel: true,
-  showSearchBox: true,
+  showSearchBox: false,
   sortStoriesByKind: true,
 })
 

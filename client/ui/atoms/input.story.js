@@ -25,10 +25,10 @@ class WithState extends Component {
 
 
 storiesOf('ui/atoms', module)
-  .add('Input', () => (
+  .addWithJSX('Input', () => (
     <WithState default="Example">
       {(props) => (
         <Input bordered={boolean('Bordered', true)} {...props} />
       )}
     </WithState>
-  ))
+  ), { skip: 1 })

@@ -6,6 +6,6 @@ import { Card } from './card'
 
 
 storiesOf('ui/atoms', module)
-  .add('Card', () => (
+  .addWithJSX('Card', () => (
     <Card>Simple content of card</Card>
   ))

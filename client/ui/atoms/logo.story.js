@@ -6,6 +6,6 @@ import { Logo } from './logo'
 
 
 storiesOf('ui/atoms', module)
-  .add('Logo', () => (
+  .addWithJSX('Logo', () => (
     <Logo height={text('Height', '30px')} width={text('Width', '135px')} fill={color('Fill', '#000')} />
   ))

@@ -24,10 +24,10 @@ class WithState extends Component {
 }
 
 storiesOf('ui/molecules', module)
-  .add('Field', () => (
+  .addWithJSX('Field', () => (
     <WithState>
       {(props) => (
         <Field label={text('Label', 'Username or email')} {...props} />
       )}
     </WithState>
-  ))
+  ), { skip: 1 })
