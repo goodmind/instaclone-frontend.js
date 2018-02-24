@@ -2,6 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
+import { withInfo } from '@storybook/addon-info'
 
 import { Layout } from './layout'
 
@@ -16,8 +17,13 @@ const Element = styled.div`
   padding: 1rem;
 `
 
+const info = withInfo({
+  propTables: [Layout],
+  propTablesExclude: [Element, Container],
+})
+
 storiesOf('atoms/Layout', module)
-  .add('Row', () => (
+  .add('Row', info(() => (
     <Container>
       <Layout flow="row">
         <Element>A</Element>
@@ -26,8 +32,8 @@ storiesOf('atoms/Layout', module)
         <Element>D</Element>
       </Layout>
     </Container>
-  ))
-  .add('Column', () => (
+  )))
+  .add('Column', info(() => (
     <Container>
       <Layout flow="column">
         <Element>A</Element>
@@ -36,8 +42,8 @@ storiesOf('atoms/Layout', module)
         <Element>D</Element>
       </Layout>
     </Container>
-  ))
-  .add('Padding', () => (
+  )))
+  .add('Padding', info(() => (
     <Container>
       <Layout flow="row" padding={2}>
         <Element>A</Element>
@@ -46,8 +52,8 @@ storiesOf('atoms/Layout', module)
         <Element>D</Element>
       </Layout>
     </Container>
-  ))
-  .add('Row gap', () => (
+  )))
+  .add('Row gap', info(() => (
     <Container>
       <Layout flow="row" gap={2}>
         <Element>A</Element>
@@ -56,8 +62,8 @@ storiesOf('atoms/Layout', module)
         <Element>D</Element>
       </Layout>
     </Container>
-  ))
-  .add('Column gap', () => (
+  )))
+  .add('Column gap', info(() => (
     <Container>
       <Layout flow="column" gap={2}>
         <Element>A</Element>
@@ -66,8 +72,8 @@ storiesOf('atoms/Layout', module)
         <Element>D</Element>
       </Layout>
     </Container>
-  ))
-  .add('Padding & gap row', () => (
+  )))
+  .add('Padding & gap row', info(() => (
     <Container>
       <Layout flow="row" padding={2} gap={2}>
         <Element>A</Element>
@@ -76,8 +82,8 @@ storiesOf('atoms/Layout', module)
         <Element>D</Element>
       </Layout>
     </Container>
-  ))
-  .add('Padding & gap column', () => (
+  )))
+  .add('Padding & gap column', info(() => (
     <Container>
       <Layout flow="column" padding={2} gap={2}>
         <Element>A</Element>
@@ -86,4 +92,4 @@ storiesOf('atoms/Layout', module)
         <Element>D</Element>
       </Layout>
     </Container>
-  ))
+  )))

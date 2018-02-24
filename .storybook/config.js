@@ -1,14 +1,11 @@
 import React from 'react'
 import styled, { injectGlobal } from 'styled-components'
 import { normalize } from 'styled-normalize'
-import { configure, addDecorator } from '@storybook/react';
-import { globalStyles } from '../client/ui/theme'
+import { configure, addDecorator } from '@storybook/react'
+import { setDefaults } from '@storybook/addon-info'
 
-function loadStories() {
-  const req = require.context('../client/', true, /\.story\.js$/)
+import { globalStyles, color } from '../client/ui/theme'
 
-  req.keys().forEach(req)
-}
 
 injectGlobal`${normalize}${globalStyles}`
 
@@ -22,4 +19,27 @@ addDecorator((fn) => (
   <RootDecorator>{fn()}</RootDecorator>
 ))
 
-configure(loadStories, module);
+setDefaults({
+  header: false,
+  source: true,
+  inline: true,
+  styles: {
+    button: {
+      topRight: {
+        borderRadius: '0 3px 0 3px',
+      },
+    },
+    info: {
+      background: color.backgroundLight,
+    },
+    infoBody: {
+      boxShadow: '0',
+    },
+  },
+})
+
+configure(() => {
+  const req = require.context('../client/', true, /\.story\.js$/)
+
+  req.keys().forEach(req)
+}, module)
