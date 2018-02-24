@@ -2,8 +2,8 @@ import React from 'react'
 import styled, { injectGlobal } from 'styled-components'
 import { normalize } from 'styled-normalize'
 import { configure, addDecorator } from '@storybook/react'
-import { setDefaults } from '@storybook/addon-info' // TODO: remove
 import { withKnobs } from '@storybook/addon-knobs'
+import { setOptions } from '@storybook/addon-options'
 
 import { globalStyles, color } from '../client/ui/theme'
 
@@ -19,23 +19,11 @@ const RootDecorator = styled.div`
 addDecorator(withKnobs)
 addDecorator((fn) => <RootDecorator>{fn()}</RootDecorator>)
 
-setDefaults({
-  header: false,
-  source: true,
-  inline: true,
-  styles: {
-    button: {
-      topRight: {
-        borderRadius: '0 3px 0 3px',
-      },
-    },
-    info: {
-      background: color.backgroundLight,
-    },
-    infoBody: {
-      boxShadow: '0',
-    },
-  },
+setOptions({
+  name: 'Instaclone',
+  showAddonPanel: true,
+  showSearchBox: true,
+  sortStoriesByKind: true,
 })
 
 configure(() => {
