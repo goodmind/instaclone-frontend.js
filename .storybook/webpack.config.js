@@ -27,7 +27,7 @@ module.exports = {
                 singleQuote: true,
                 tabWidth: 2,
                 bracketSpacing: true,
-                trailingComma: 'es6',
+                trailingComma: 'all',
               },
             },
           },
