@@ -1,3 +1,11 @@
 {
-  "npm-scripts.showStartNotification": false
+  "eslint.autoFixOnSave": true,
+  "editor.rulers": [
+    100
+  ],
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
 }
