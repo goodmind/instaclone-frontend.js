@@ -21,9 +21,9 @@ const initialState = {
 
 const { actions, reducer: usersReducer } = createSymbiote(initialState, {
   loading: {
-    start: () => ({ status: LOADING.loading }),
-    failed: (error) => ({ error, status: LOADING.failed }),
-    finish: (users) => ({ users: users.data, status: LOADING.ready }),
+    start: (state) => ({ ...state, status: LOADING.loading }),
+    failed: (state, error) => ({ ...state, error, status: LOADING.failed }),
+    finish: (state, users) => ({ ...state, users: users.data, status: LOADING.ready }),
   },
 }, 'users')
 
