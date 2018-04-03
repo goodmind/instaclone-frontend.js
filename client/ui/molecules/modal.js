@@ -7,17 +7,15 @@ import { Close } from '../outlines'
 
 
 export const ModalWrapper = styled.div`
-  padding: 0 4rem;
   display: flex;
   align-items: center;
-  min-height: 100%;
-  z-index: 130;
-`
+`.extend.withConfig({ componentId: 'ModalContent' })``
 
 export const ModalContent = styled.div`
-  margin: auto;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  max-width: 935rem;
+  max-width: 100vw;
 `
 
 export const ModalButton = styled.div`
@@ -27,23 +25,29 @@ export const ModalButton = styled.div`
   cursor: pointer;
 `
 
-export const Modal = ({ onClose, children }) => (
+const stopPropagation = (event) => {
+  event.stopPropagation()
+}
+
+export const Modal = ({ onClose, children, opened }) => opened ? (
   <Litter onClick={onClose}>
-    <ModalWrapper>
+    <ModalWrapper onClick={stopPropagation}>
       <ModalContent>{children}</ModalContent>
-      <ModalButton>
+      <ModalButton onClick={onClose}>
         <Close />
       </ModalButton>
     </ModalWrapper>
   </Litter>
-)
+) : null
 
 Modal.propTypes = {
   children: PropTypes.node,
   onClose: PropTypes.func,
+  opened: PropTypes.bool,
 }
 
 Modal.defaultProps = {
-  children: undefined,
+  children: null,
   onClose: undefined,
+  opened: false,
 }
